@@ -30,6 +30,7 @@
           
           <a href="../../index.html" class="icon icon-home">
             CarP
+              <img src="../../_static/CarP_logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -604,6 +605,13 @@
     <span class="k">def</span> <span class="nf">pyranose_basis</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rd</span><span class="p">,</span> <span class="n">sugar_basis</span><span class="p">):</span>
         <span class="n">adj_atom_O</span> <span class="o">=</span> <span class="n">adjacent_atoms</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">conn_mat</span><span class="p">,</span> <span class="n">rd</span><span class="p">[</span><span class="s1">&#39;O&#39;</span><span class="p">])</span>
 
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates the ring dictionary for a 6 membered sugar ring.</span>
+
+<span class="sd">        :param rd: (dict) dictionary of ring atoms with just the ring oxygen.</span>
+<span class="sd">        :param sugar_basis: (list) list of atoms in the sugar ring in order.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
         <span class="k">for</span> <span class="n">atom</span> <span class="ow">in</span> <span class="n">adj_atom_O</span><span class="p">:</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="n">atom</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">or</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="n">adj_at</span><span class="p">]</span> <span class="k">for</span> <span class="n">adj_at</span> <span class="ow">in</span> <span class="n">adjacent_atoms</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">conn_mat</span><span class="p">,</span> <span class="n">atom</span><span class="p">)]</span><span class="o">.</span><span class="n">count</span><span class="p">(</span>
                     <span class="s1">&#39;H&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
@@ -670,6 +678,13 @@
     <span class="k">def</span> <span class="nf">furanose_basis</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rd</span><span class="p">,</span> <span class="n">sugar_basis</span><span class="p">):</span>
         <span class="n">adj_atom_O</span> <span class="o">=</span> <span class="n">adjacent_atoms</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">conn_mat</span><span class="p">,</span> <span class="n">rd</span><span class="p">[</span><span class="s1">&#39;O&#39;</span><span class="p">])</span>
 
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates the ring dictionary for a 5 membered sugar ring.</span>
+<span class="sd">        </span>
+<span class="sd">        :param rd: (dict) dictionary of ring atoms with just the ring oxygen........</span>
+<span class="sd">        :param sugar_basis: (list) list of atoms in the sugar ring in order.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
         <span class="k">for</span> <span class="n">atom</span> <span class="ow">in</span> <span class="n">adj_atom_O</span><span class="p">:</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="n">atom</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">or</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="n">adj_at</span><span class="p">]</span> <span class="k">for</span> <span class="n">adj_at</span> <span class="ow">in</span> <span class="n">adjacent_atoms</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">conn_mat</span><span class="p">,</span><span class="n">atom</span><span class="p">)]</span><span class="o">.</span><span class="n">count</span><span class="p">(</span>
                     <span class="s1">&#39;H&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
@@ -723,8 +738,11 @@
 <a class="viewcode-back" href="../../CarP.html#CarP.conformer.Conformer.sort_ring_atoms">[docs]</a>
     <span class="k">def</span> <span class="nf">sort_ring_atoms</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cycles_in_graph</span><span class="p">,</span> <span class="n">conn_mat</span><span class="p">,</span> <span class="n">conf</span><span class="p">):</span>
 
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Creates a dictionary for each ring in the molecule</span>
-<span class="sd">        The dictionary keys are C1-C6, and O, to represent carbons 1-6 and the ring oxygen for each sugar.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates the dictionary of ring atoms for each sugar ring in the molecule.</span>
+
+<span class="sd">        :param cycles_in_graph: (list) list of cycles in the molecule.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">rd_list</span> <span class="o">=</span> <span class="p">[]</span>
 
@@ -840,6 +858,15 @@
 <div class="viewcode-block" id="Conformer.glycosidic_link_check">
 <a class="viewcode-back" href="../../CarP.html#CarP.conformer.Conformer.glycosidic_link_check">[docs]</a>
     <span class="k">def</span> <span class="nf">glycosidic_link_check</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">conn_mat</span><span class="p">,</span> <span class="n">edge</span><span class="p">,</span> <span class="n">c1_list</span><span class="p">,</span> <span class="n">rd_list</span><span class="p">):</span>
+
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Finds which carbon in the ring has a glycosidic linkage.</span>
+
+<span class="sd">        :param c1_list: (list) list of C1 atoms in the molecule.</span>
+<span class="sd">        :param rd_list: (list) list of dictionaries for rings.</span>
+<span class="sd">        :param edge: (tuple) tuple of 2 nodes in the ring graph.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
         <span class="n">glycosidic_link_list</span> <span class="o">=</span> <span class="p">[]</span>
 
         <span class="n">node_1</span> <span class="o">=</span> <span class="n">edge</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -876,9 +903,6 @@
 <div class="viewcode-block" id="Conformer.ring_dict_finder">
 <a class="viewcode-back" href="../../CarP.html#CarP.conformer.Conformer.ring_dict_finder">[docs]</a>
     <span class="k">def</span> <span class="nf">ring_dict_finder</span><span class="p">(</span><span class="n">atom</span><span class="p">,</span> <span class="n">rd_list</span><span class="p">):</span>
-
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Takes in an atom object and returns the ring dictionary associated with that atom&quot;&quot;&quot;</span>
-
         <span class="k">for</span> <span class="n">rd</span> <span class="ow">in</span> <span class="n">rd_list</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">atom</span> <span class="ow">in</span> <span class="n">rd</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
                 <span class="k">return</span> <span class="n">rd</span></div>
@@ -888,8 +912,12 @@
 <a class="viewcode-back" href="../../CarP.html#CarP.conformer.Conformer.find_red_end">[docs]</a>
     <span class="k">def</span> <span class="nf">find_red_end</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">c1_list</span><span class="p">,</span> <span class="n">rd_list</span><span class="p">,</span> <span class="n">conn_mat</span><span class="p">):</span>
 
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Finds the reducing end of the glycan by checking the connectivity of the Oxygen attached to Carbon 1</span>
-<span class="sd">        Return: Ring Dictionary&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Finds the reducing end of the carbohydrate.</span>
+
+<span class="sd">        :param c1_list: (list) list of C1 atoms in the molecule.</span>
+<span class="sd">        :param rd_list: (list) list of dictionaries for rings.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">for</span> <span class="n">c1</span> <span class="ow">in</span> <span class="n">c1_list</span><span class="p">:</span>
             <span class="n">ring_dict</span> <span class="o">=</span> <span class="n">Conformer</span><span class="o">.</span><span class="n">ring_dict_finder</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span> <span class="n">rd_list</span><span class="p">)</span>
@@ -914,8 +942,12 @@
 <a class="viewcode-back" href="../../CarP.html#CarP.conformer.Conformer.ring_connectivity_checker">[docs]</a>
     <span class="k">def</span> <span class="nf">ring_connectivity_checker</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rd1</span><span class="p">,</span> <span class="n">rd2</span><span class="p">,</span> <span class="n">conn_mat</span><span class="p">):</span>
 
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Checks to see if two rings are adjacent to each other</span>
-<span class="sd">        Return: boolean&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Checks to see if 2 rings are adjacent.</span>
+
+<span class="sd">        :param rd1: (dict) dictionary of ring atoms for ring 1.</span>
+<span class="sd">        :param rd2: (dict) dictionary of ring atoms for ring 2.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">edge_check_list</span> <span class="o">=</span> <span class="p">[]</span>
 
@@ -941,8 +973,11 @@
 <a class="viewcode-back" href="../../CarP.html#CarP.conformer.Conformer.amide_check">[docs]</a>
     <span class="k">def</span> <span class="nf">amide_check</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rd</span><span class="p">):</span>
 
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Checks to see if an amide group is present on the ring</span>
-<span class="sd">        Return: boolean&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Checks to see if there is an amide in the ring.</span>
+
+<span class="sd">        :param rd: (dict) dictionary of ring atoms.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">rd</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span> <span class="o">==</span> <span class="mi">7</span><span class="p">:</span>
             <span class="n">C2</span> <span class="o">=</span> <span class="n">rd</span><span class="p">[</span><span class="s1">&#39;C2&#39;</span><span class="p">]</span>
@@ -981,8 +1016,11 @@
 <a class="viewcode-back" href="../../CarP.html#CarP.conformer.Conformer.amine_check">[docs]</a>
     <span class="k">def</span> <span class="nf">amine_check</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">conn_mat</span><span class="p">,</span> <span class="n">rd</span><span class="p">):</span>
 
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Checks to see if an amine group is present on the ring</span>
-<span class="sd">        Return: boolean&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Checks to see if there is an amine in the ring.</span>
+
+<span class="sd">        :param rd: (dict) dictionary of ring atoms.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">rd</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span> <span class="o">==</span> <span class="mi">7</span><span class="p">:</span>
             <span class="n">C2</span> <span class="o">=</span> <span class="n">rd</span><span class="p">[</span><span class="s1">&#39;C2&#39;</span><span class="p">]</span>
@@ -1016,9 +1054,11 @@
 <a class="viewcode-back" href="../../CarP.html#CarP.conformer.Conformer.ring_graph_maker">[docs]</a>
     <span class="k">def</span> <span class="nf">ring_graph_maker</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rd_list</span><span class="p">,</span> <span class="n">conn_mat</span><span class="p">):</span>
 
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Turns the list of ring dictionaries into a graph</span>
-<span class="sd">        Return: Networkx Graph Object&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates a nextworkx graph where each node is a ring in the molecule.</span>
 
+<span class="sd">        :param rd_list: (list) list of dictionaries for rings.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">ring_graph</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
 
         <span class="k">for</span> <span class="n">rd1</span> <span class="ow">in</span> <span class="n">rd_list</span><span class="p">:</span>
@@ -1048,8 +1088,11 @@
 <a class="viewcode-back" href="../../CarP.html#CarP.conformer.Conformer.sort_rings">[docs]</a>
     <span class="k">def</span> <span class="nf">sort_rings</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rd_list</span><span class="p">,</span> <span class="n">conn_mat</span><span class="p">):</span>
 
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Sorts the list of ring dictionaries based on depth first search</span>
-<span class="sd">        Return: Sorted Ring List, Graph Tree, Anomer List&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Sorts all sugar rings in the molecule using the networkx dfs algorithm.</span>
+
+<span class="sd">        :param rd_list: (list) list of dictionaries for rings.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">c1_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">rd</span><span class="p">[</span><span class="s1">&#39;C1&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s1">&#39;C1&#39;</span> <span class="ow">in</span> <span class="n">rd</span> <span class="k">else</span> <span class="n">rd</span><span class="p">[</span><span class="s1">&#39;C2&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">rd</span> <span class="ow">in</span> <span class="n">rd_list</span><span class="p">]</span>
         <span class="n">red_end</span> <span class="o">=</span> <span class="n">Conformer</span><span class="o">.</span><span class="n">find_red_end</span><span class="p">(</span><span class="n">c1_list</span><span class="o">=</span><span class="n">c1_list</span><span class="p">,</span> <span class="n">rd_list</span><span class="o">=</span><span class="n">rd_list</span><span class="p">,</span> <span class="n">conn_mat</span><span class="o">=</span><span class="n">conn_mat</span><span class="p">)</span>
@@ -1128,8 +1171,11 @@
 <a class="viewcode-back" href="../../CarP.html#CarP.conformer.Conformer.sugar_stero">[docs]</a>
     <span class="k">def</span> <span class="nf">sugar_stero</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">rd</span><span class="p">):</span>
 
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Identifies the stero isomer of a sugar (L,D)</span>
-<span class="sd">        Return: None&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Finds the stereo isomer for a sugar ring.</span>
+
+<span class="sd">        :param rd: (dict) dictionary of ring atoms.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">rd</span><span class="o">.</span><span class="n">values</span><span class="p">())</span> <span class="o">==</span> <span class="mi">7</span><span class="p">:</span>
             <span class="n">dihedral_angle</span> <span class="o">=</span> <span class="n">measure_dihedral</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="p">[</span><span class="n">rd</span><span class="p">[</span><span class="s1">&#39;O&#39;</span><span class="p">],</span> <span class="n">rd</span><span class="p">[</span><span class="s1">&#39;C5&#39;</span><span class="p">],</span> <span class="n">rd</span><span class="p">[</span><span class="s1">&#39;C4&#39;</span><span class="p">],</span> <span class="n">rd</span><span class="p">[</span><span class="s1">&#39;C6&#39;</span><span class="p">]])</span>
@@ -1144,15 +1190,18 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="n">sugar_type</span> <span class="o">=</span> <span class="s1">&#39;None&#39;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">stero</span> <span class="o">=</span> <span class="n">sugar_type</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stero</span> <span class="o">=</span> <span class="n">sugar_type</span> </div>
 
 
 <div class="viewcode-block" id="Conformer.glycosidic_link_type">
 <a class="viewcode-back" href="../../CarP.html#CarP.conformer.Conformer.glycosidic_link_type">[docs]</a>
     <span class="k">def</span> <span class="nf">glycosidic_link_type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rd</span><span class="p">):</span>
 
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Identifies the anomer for the glycosidic linkage</span>
-<span class="sd">        Return: None&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Finds the anomer for a sugar ring.</span>
+
+<span class="sd">        :param rd: (dict) dictionary of ring atoms.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">sugar_type</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">stero</span>
         <span class="n">conn_mat</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">conn_mat</span>
@@ -1196,8 +1245,11 @@
 <a class="viewcode-back" href="../../CarP.html#CarP.conformer.Conformer.find_pg">[docs]</a>
     <span class="k">def</span> <span class="nf">find_pg</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dfs_list</span><span class="p">,</span> <span class="n">conn_mat</span><span class="p">):</span>
 
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Identifies if there is a protecting group attached to the ring</span>
-<span class="sd">        Return: A dictionary containing the atom information for a protecting group&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Checks to see if there is a protecting group in each ring.</span>
+
+<span class="sd">        :param dfs_list: (list) sorted list of dictionaries for rings.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">pg_list</span> <span class="o">=</span> <span class="p">[]</span>
 
@@ -1251,9 +1303,6 @@
 <a class="viewcode-back" href="../../CarP.html#CarP.conformer.Conformer.ring_stereo_compiler">[docs]</a>
     <span class="k">def</span> <span class="nf">ring_stereo_compiler</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">conf</span><span class="p">,</span> <span class="n">dfs_list</span><span class="p">,</span> <span class="n">conn_mat</span><span class="p">):</span>
 
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Compiles the sterochemistry of all sugar rings</span>
-<span class="sd">        Return: List of sugar stereo isomers, List of sugar anomers&quot;&quot;&quot;</span>
-
         <span class="n">sugar_type_list</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">glyco_type_list</span> <span class="o">=</span> <span class="p">[]</span>
 
@@ -1270,8 +1319,11 @@
 <a class="viewcode-back" href="../../CarP.html#CarP.conformer.Conformer.sugar_type_checker">[docs]</a>
     <span class="k">def</span> <span class="nf">sugar_type_checker</span><span class="p">(</span><span class="n">rd</span><span class="p">,</span><span class="n">xyz_array</span><span class="p">,</span><span class="n">conn_mat</span><span class="p">):</span>
 
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Identifies what sugar each sugar ring is</span>
-<span class="sd">        Return: A string of the abbreviated sugar type&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Identifies what type of sugar each ring is.</span>
+
+<span class="sd">        :param rd: (dict) dictionary of ring atoms.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="c1"># Bit Order: Ring Size, C6, O2, O3, O4, Amide, O6, Amine</span>
         <span class="n">sugar_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Tal&#39;</span><span class="p">:</span><span class="mi">11111010</span><span class="p">,</span> <span class="s1">&#39;TalNac&#39;</span><span class="p">:</span><span class="mi">11111110</span><span class="p">,</span> <span class="s1">&#39;TalA&#39;</span><span class="p">:</span><span class="mi">11111020</span><span class="p">,</span> <span class="s1">&#39;TalN&#39;</span><span class="p">:</span><span class="mi">11111011</span><span class="p">,</span><span class="s1">&#39;6dTal&#39;</span><span class="p">:</span><span class="mi">11111000</span><span class="p">,</span> <span class="s1">&#39;6dTalNac&#39;</span><span class="p">:</span><span class="mi">11111100</span><span class="p">,</span>
@@ -1339,8 +1391,17 @@
 <a class="viewcode-back" href="../../CarP.html#CarP.conformer.Conformer.snfg">[docs]</a>
     <span class="k">def</span> <span class="nf">snfg</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span><span class="n">dfs_list</span><span class="p">,</span><span class="n">glyco_list</span><span class="p">,</span><span class="n">stero_list</span><span class="p">,</span><span class="n">sugar_list</span><span class="p">,</span> <span class="n">rd_list</span><span class="p">,</span> <span class="n">node_size</span><span class="p">:</span><span class="nb">float</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">edge_length</span><span class="p">:</span><span class="nb">float</span> <span class="o">=</span> <span class="mi">5</span><span class="p">):</span>
 
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Generates the SNFG Figure for a glycan</span>
-<span class="sd">        Return: Matplotlib fig and ax objects&quot;&quot;&quot;</span>
+
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Generates athe snfg diagram for a carbohydrate,</span>
+
+<span class="sd">        :param tree: (Graph) tree of all ring atomsa,</span>
+<span class="sd">        :param dfs_list: (list) sorted list of dictionaries for rings,</span>
+<span class="sd">        :param glyco_list: (list) list of all anomers in the molecule,</span>
+<span class="sd">        :param sugar_list: (list) list of all sugar types in the molecule,</span>
+<span class="sd">        :param node_size: (float) size of the nodes in the diagram,</span>
+<span class="sd">        :param edge_length: (float) length of edges in the diagram,</span>
+<span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">snfg_graph</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
 

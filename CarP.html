@@ -32,6 +32,7 @@
           
           <a href="index.html" class="icon icon-home">
             CarP
+              <img src="_static/CarP_logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -340,15 +341,23 @@ set proper flags, to be fixed for only freq calcs) and creates an object</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="CarP.conformer.Conformer.amide_check">
 <span class="sig-name descname"><span class="pre">amide_check</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rd</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CarP/conformer.html#Conformer.amide_check"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CarP.conformer.Conformer.amide_check" title="Link to this definition"></a></dt>
-<dd><p>Checks to see if an amide group is present on the ring
-Return: boolean</p>
+<dd><p>Checks to see if there is an amide in the ring.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>rd</strong> – (dict) dictionary of ring atoms.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="CarP.conformer.Conformer.amine_check">
 <span class="sig-name descname"><span class="pre">amine_check</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conn_mat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rd</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CarP/conformer.html#Conformer.amine_check"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CarP.conformer.Conformer.amine_check" title="Link to this definition"></a></dt>
-<dd><p>Checks to see if an amine group is present on the ring
-Return: boolean</p>
+<dd><p>Checks to see if there is an amine in the ring.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>rd</strong> – (dict) dictionary of ring atoms.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -397,15 +406,26 @@ Return: boolean</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="CarP.conformer.Conformer.find_pg">
 <span class="sig-name descname"><span class="pre">find_pg</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dfs_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conn_mat</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CarP/conformer.html#Conformer.find_pg"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CarP.conformer.Conformer.find_pg" title="Link to this definition"></a></dt>
-<dd><p>Identifies if there is a protecting group attached to the ring
-Return: A dictionary containing the atom information for a protecting group</p>
+<dd><p>Checks to see if there is a protecting group in each ring.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>dfs_list</strong> – (list) sorted list of dictionaries for rings.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="CarP.conformer.Conformer.find_red_end">
 <span class="sig-name descname"><span class="pre">find_red_end</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c1_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rd_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conn_mat</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CarP/conformer.html#Conformer.find_red_end"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CarP.conformer.Conformer.find_red_end" title="Link to this definition"></a></dt>
-<dd><p>Finds the reducing end of the glycan by checking the connectivity of the Oxygen attached to Carbon 1
-Return: Ring Dictionary</p>
+<dd><p>Finds the reducing end of the carbohydrate.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>c1_list</strong> – (list) list of C1 atoms in the molecule.</p></li>
+<li><p><strong>rd_list</strong> – (list) list of dictionaries for rings.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -431,13 +451,27 @@ generates attribute self.IR - np.array with dimmension 4000/resolution consistin
 <dl class="py method">
 <dt class="sig sig-object py" id="CarP.conformer.Conformer.glycosidic_link_check">
 <span class="sig-name descname"><span class="pre">glycosidic_link_check</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conn_mat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c1_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rd_list</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CarP/conformer.html#Conformer.glycosidic_link_check"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CarP.conformer.Conformer.glycosidic_link_check" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Finds which carbon in the ring has a glycosidic linkage.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>c1_list</strong> – (list) list of C1 atoms in the molecule.</p></li>
+<li><p><strong>rd_list</strong> – (list) list of dictionaries for rings.</p></li>
+<li><p><strong>edge</strong> – (tuple) tuple of 2 nodes in the ring graph.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="CarP.conformer.Conformer.glycosidic_link_type">
 <span class="sig-name descname"><span class="pre">glycosidic_link_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rd</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CarP/conformer.html#Conformer.glycosidic_link_type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CarP.conformer.Conformer.glycosidic_link_type" title="Link to this definition"></a></dt>
-<dd><p>Identifies the anomer for the glycosidic linkage
-Return: None</p>
+<dd><p>Finds the anomer for a sugar ring.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>rd</strong> – (dict) dictionary of ring atoms.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -487,29 +521,37 @@ Need to add output directory. Default name is self._id</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="CarP.conformer.Conformer.ring_connectivity_checker">
 <span class="sig-name descname"><span class="pre">ring_connectivity_checker</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rd1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rd2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conn_mat</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CarP/conformer.html#Conformer.ring_connectivity_checker"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CarP.conformer.Conformer.ring_connectivity_checker" title="Link to this definition"></a></dt>
-<dd><p>Checks to see if two rings are adjacent to each other
-Return: boolean</p>
+<dd><p>Checks to see if 2 rings are adjacent.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rd1</strong> – (dict) dictionary of ring atoms for ring 1.</p></li>
+<li><p><strong>rd2</strong> – (dict) dictionary of ring atoms for ring 2.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="CarP.conformer.Conformer.ring_dict_finder">
 <span class="sig-name descname"><span class="pre">ring_dict_finder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rd_list</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CarP/conformer.html#Conformer.ring_dict_finder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CarP.conformer.Conformer.ring_dict_finder" title="Link to this definition"></a></dt>
-<dd><p>Takes in an atom object and returns the ring dictionary associated with that atom</p>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="CarP.conformer.Conformer.ring_graph_maker">
 <span class="sig-name descname"><span class="pre">ring_graph_maker</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rd_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conn_mat</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CarP/conformer.html#Conformer.ring_graph_maker"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CarP.conformer.Conformer.ring_graph_maker" title="Link to this definition"></a></dt>
-<dd><p>Turns the list of ring dictionaries into a graph
-Return: Networkx Graph Object</p>
+<dd><p>Creates a nextworkx graph where each node is a ring in the molecule.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>rd_list</strong> – (list) list of dictionaries for rings.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="CarP.conformer.Conformer.ring_stereo_compiler">
 <span class="sig-name descname"><span class="pre">ring_stereo_compiler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dfs_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conn_mat</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CarP/conformer.html#Conformer.ring_stereo_compiler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CarP.conformer.Conformer.ring_stereo_compiler" title="Link to this definition"></a></dt>
-<dd><p>Compiles the sterochemistry of all sugar rings
-Return: List of sugar stereo isomers, List of sugar anomers</p>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="CarP.conformer.Conformer.rotate_conf">
@@ -589,36 +631,63 @@ The rotation matrix is then multiplied to the existing xyz matrix and the vibrat
 <dl class="py method">
 <dt class="sig sig-object py" id="CarP.conformer.Conformer.snfg">
 <span class="sig-name descname"><span class="pre">snfg</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dfs_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">glyco_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stero_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sugar_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rd_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge_length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CarP/conformer.html#Conformer.snfg"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CarP.conformer.Conformer.snfg" title="Link to this definition"></a></dt>
-<dd><p>Generates the SNFG Figure for a glycan
-Return: Matplotlib fig and ax objects</p>
+<dd><p>Generates athe snfg diagram for a carbohydrate,</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tree</strong> – (Graph) tree of all ring atomsa,</p></li>
+<li><p><strong>dfs_list</strong> – (list) sorted list of dictionaries for rings,</p></li>
+<li><p><strong>glyco_list</strong> – (list) list of all anomers in the molecule,</p></li>
+<li><p><strong>sugar_list</strong> – (list) list of all sugar types in the molecule,</p></li>
+<li><p><strong>node_size</strong> – (float) size of the nodes in the diagram,</p></li>
+<li><p><strong>edge_length</strong> – (float) length of edges in the diagram,</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="CarP.conformer.Conformer.sort_ring_atoms">
 <span class="sig-name descname"><span class="pre">sort_ring_atoms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cycles_in_graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conn_mat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conf</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CarP/conformer.html#Conformer.sort_ring_atoms"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CarP.conformer.Conformer.sort_ring_atoms" title="Link to this definition"></a></dt>
-<dd><p>Creates a dictionary for each ring in the molecule
-The dictionary keys are C1-C6, and O, to represent carbons 1-6 and the ring oxygen for each sugar.</p>
+<dd><p>Creates the dictionary of ring atoms for each sugar ring in the molecule.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>cycles_in_graph</strong> – (list) list of cycles in the molecule.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="CarP.conformer.Conformer.sort_rings">
 <span class="sig-name descname"><span class="pre">sort_rings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rd_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conn_mat</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CarP/conformer.html#Conformer.sort_rings"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CarP.conformer.Conformer.sort_rings" title="Link to this definition"></a></dt>
-<dd><p>Sorts the list of ring dictionaries based on depth first search
-Return: Sorted Ring List, Graph Tree, Anomer List</p>
+<dd><p>Sorts all sugar rings in the molecule using the networkx dfs algorithm.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>rd_list</strong> – (list) list of dictionaries for rings.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="CarP.conformer.Conformer.sugar_stero">
 <span class="sig-name descname"><span class="pre">sugar_stero</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rd</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CarP/conformer.html#Conformer.sugar_stero"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CarP.conformer.Conformer.sugar_stero" title="Link to this definition"></a></dt>
-<dd><p>Identifies the stero isomer of a sugar (L,D)
-Return: None</p>
+<dd><p>Finds the stereo isomer for a sugar ring.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>rd</strong> – (dict) dictionary of ring atoms.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="CarP.conformer.Conformer.sugar_type_checker">
 <span class="sig-name descname"><span class="pre">sugar_type_checker</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xyz_array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conn_mat</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CarP/conformer.html#Conformer.sugar_type_checker"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CarP.conformer.Conformer.sugar_type_checker" title="Link to this definition"></a></dt>
-<dd><p>Identifies what sugar each sugar ring is
-Return: A string of the abbreviated sugar type</p>
+<dd><p>Identifies what type of sugar each ring is.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>rd</strong> – (dict) dictionary of ring atoms.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -667,24 +736,17 @@ Return: A string of the abbreviated sugar type</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="CarP.display_utilities.make_plots">
 <span class="sig-prename descclassname"><span class="pre">CarP.display_utilities.</span></span><span class="sig-name descname"><span class="pre">make_plots</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">conf_space_object</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scatter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/CarP/display_utilities.html#make_plots"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#CarP.display_utilities.make_plots" title="Link to this definition"></a></dt>
-<dd><p>Displays plots
-+</p>
-<blockquote>
-<div><dl class="field-list simple">
-<dt class="field-odd">param conf_space_object<span class="colon">:</span></dt>
-<dd class="field-odd"><p>an initialized conformer space, this should be a list of conformer objects containing molecule data</p>
-</dd>
-<dt class="field-even">param index<span class="colon">:</span></dt>
-<dd class="field-even"><p>(int) identifies which conformer in the list of conformers, the default is the first conformer at index 0</p>
-</dd>
-<dt class="field-odd">param bar<span class="colon">:</span></dt>
-<dd class="field-odd"><p>(bool) specifies if bar plots should be generated, this is a triple bar plot (rmsd, rmsd without H, pendry factor); default set to TRUE</p>
-</dd>
-<dt class="field-even">param scatter<span class="colon">:</span></dt>
-<dd class="field-even"><p>(bool) specifies if scatterplot should be generated, there will be 3 things plotted (rmsd, rmsd without H, pendry factor); default set to TRUE</p>
+<dd><p>Displays plots</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>conf_space_object</strong> – an initialized conformer space, this should be a list of conformer objects containing molecule data</p></li>
+<li><p><strong>index</strong> – (int) identifies which conformer in the list of conformers, the default is the first conformer at index 0</p></li>
+<li><p><strong>bar</strong> – (bool) specifies if bar plots should be generated, this is a triple bar plot (rmsd, rmsd without H, pendry factor); default set to TRUE</p></li>
+<li><p><strong>scatter</strong> – (bool) specifies if scatterplot should be generated, there will be 3 things plotted (rmsd, rmsd without H, pendry factor); default set to TRUE</p></li>
+</ul>
 </dd>
 </dl>
-</div></blockquote>
 </dd></dl>
 
 <dl class="py function">
